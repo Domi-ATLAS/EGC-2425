@@ -5,9 +5,14 @@ on:
     branches: [config/ci]
 
 jobs:
+  outdated_dependencies:
+    - name: Check for outdated dependencies
+          run: |
+            pip list --outdated
+            
   pytest:
     runs-on: ubuntu-latest
-
+  
     services:
       mysql:
         image: mysql:5.7
